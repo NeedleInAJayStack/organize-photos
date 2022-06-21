@@ -4,5 +4,5 @@ in a destination directory. This is used to automate my photo organization.
 Sample crontab usage:
 
 ```cron
-@monthly python3 ~/dev/python/organize-photos/organize-photos.py ~/Image/Mobile\ Photos/ ~/Image/Photos/
+@monthly python3 ~/dev/python/organize-photos/main.py ~/Image/Mobile\ Photos/ ~/Image/Photos/
 ```
