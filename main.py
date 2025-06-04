@@ -27,14 +27,16 @@ if not destinationPath.exists() or not destinationPath.is_dir():
 
 # Should reliably get the previous month. This should be run on a `@monthly` cron job.
 lastMonthDate = date.today() - timedelta(days=27)
-sourceDirName = f'{lastMonthDate.year}-{lastMonthDate.month}'
+lastMonthYearStr = f'{lastMonthDate.year}'
+lastMonthMonthStr = f'{lastMonthDate.month:02}' # The ':02' syntax ensures 2 decimals, even when < 10
+sourceDirName = f'{lastMonthYearStr}-{lastMonthMonthStr}'
 sourceDir = sourcePath / sourceDirName
 
-yearDir = destinationPath / f'{lastMonthDate.year}'
+yearDir = destinationPath / f'{lastMonthYearStr}'
 if not yearDir.exists():
   os.mkdir(yearDir)
 
-monthDir = yearDir / f'{lastMonthDate.month}'
+monthDir = yearDir / f'{lastMonthMonthStr}' # The ':02' syntax ensures 2 decimals, even when < 10
 if not monthDir.exists():
   os.mkdir(monthDir)
 
